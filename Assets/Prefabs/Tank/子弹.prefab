@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  isPlayerBullet: 1
 --- !u!61 &3717845405998085962
 BoxCollider2D:
   m_ObjectHideFlags: 0

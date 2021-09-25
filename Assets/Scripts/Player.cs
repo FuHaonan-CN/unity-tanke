@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // 属性值
+    /* 属性值 */
     public float moveSpeed = 3;
     private Vector3 bulletEulerAngles;
-    // 计时器
-    private float timeVal;
+    private float timeVal;  // 计时器
+    private float defendTimeVal=3;  // 无敌计时器
+    private bool isDefended=true;
+    
 
-    // 引用
+    /* 引用 */
     private SpriteRenderer sr;
     // 上 右 下 左
     public Sprite[] tankSprite;
     // 子弹的预设值
     public GameObject bulletPrefab;
     public GameObject explosionPrefab;
+    public GameObject defendEffectPrefab;
 
     private void Awake()
     {
@@ -31,6 +34,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // 判断是否处于无敌状态
+        if (isDefended)
+        {
+            defendEffectPrefab.SetActive(true);
+            defendTimeVal -= Time.deltaTime;
+            if (defendTimeVal<=0)
+            {
+                isDefended = false;
+                defendEffectPrefab.SetActive(false);
+            }
+        }
+        
         // 设置发射子弹的间隔
         if (timeVal >= 0.4f)
         {
@@ -104,9 +119,14 @@ public class Player : MonoBehaviour
     // 坦克的死亡方法
     private void Die()
     {
+        // 判断是否无敌
+        if (isDefended)
+        {
+            return;
+        }
         // 产生爆炸特效
         Instantiate(explosionPrefab, transform.position, transform.rotation);
-        
         // 死亡
+        Destroy(gameObject);
     }
 }

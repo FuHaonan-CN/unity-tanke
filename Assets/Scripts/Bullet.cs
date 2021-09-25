@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 {
     // 属性值
     public float moveSpeed = 10;
+    public bool isPlayerBullet;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,14 +26,26 @@ public class Bullet : MonoBehaviour
         switch (collision.tag)
         {
             case "Tank":
+                if (!isPlayerBullet)
+                {
+                    collision.SendMessage("Die");
+                }
                 break;
             case "Home":
+                collision.SendMessage("Die");
+                Destroy(gameObject);
                 break;
             case "Enemy":
                 break;
             case "Wall":
+                // 销毁墙
+                Destroy(collision.gameObject);
+                // 销毁自身
+                Destroy(gameObject);
                 break;
             case "Barrier":
+                // 销毁自身
+                Destroy(gameObject);
                 break;
         }
     }
