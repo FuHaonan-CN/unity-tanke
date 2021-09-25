@@ -7,6 +7,7 @@ public class Home : MonoBehaviour
     private SpriteRenderer sr;
 
     public Sprite BrokenSprite;
+    public GameObject explosionPrefab;
     
     // Start is called before the first frame update
     void Start()
@@ -17,5 +18,6 @@ public class Home : MonoBehaviour
    public void Die()
     {
         sr.sprite = BrokenSprite;
+        Instantiate(explosionPrefab, transform.position, transform.rotation);
     }
 }
