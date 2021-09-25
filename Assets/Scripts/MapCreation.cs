@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class MapCreation : MonoBehaviour
 {
    // 用来装饰初始化地图所需物体的数组
-   // 0 老家，1 墙，2 障碍，3出生效果 4河流 5空气墙
+   // 0 老家，1 墙，2 障碍，3出生效果 4河流  5草 6空气墙
    public GameObject[] item;
  //已经有东西的位置列表
     private List<Vector3> itemPositionList = new List<Vector3>();

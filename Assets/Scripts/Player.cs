@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public Sprite[] tankSprite;
     // 子弹的预设值
     public GameObject bulletPrefab;
-    public GameObject explosion;
+    public GameObject explosionPrefab;
 
     private void Awake()
     {
@@ -105,6 +105,8 @@ public class Player : MonoBehaviour
     private void Die()
     {
         // 产生爆炸特效
+        Instantiate(explosionPrefab, transform.position, transform.rotation);
+        
         // 死亡
     }
 }
