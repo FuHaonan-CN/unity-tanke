@@ -13,7 +13,7 @@ public class Born : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Invoke("BornTank", 1f);
-        Destroy(gameObject, 1);
+        // Destroy(gameObject, 1);
 	}
 	
 	// Update is called once per frame
