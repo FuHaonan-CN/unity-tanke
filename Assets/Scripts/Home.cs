@@ -19,5 +19,6 @@ public class Home : MonoBehaviour
     {
         sr.sprite = BrokenSprite;
         Instantiate(explosionPrefab, transform.position, transform.rotation);
+        PlayerManager.Instance.isDefeat = true;
     }
 }

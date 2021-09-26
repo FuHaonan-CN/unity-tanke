@@ -1,15 +1,12 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class MapCreation : MonoBehaviour
 {
-   // 用来装饰初始化地图所需物体的数组
-   // 0 老家，1 墙，2 障碍，3出生效果 4河流  5草 6空气墙
-   public GameObject[] item;
- //已经有东西的位置列表
+    // 用来装饰初始化地图所需物体的数组
+    // 0 老家，1 墙，2 障碍，3出生效果 4河流  5草 6空气墙
+    public GameObject[] item;
+    //已经有东西的位置列表
     private List<Vector3> itemPositionList = new List<Vector3>();
 
     private void Awake()
@@ -48,14 +45,15 @@ public class MapCreation : MonoBehaviour
 
         //初始化玩家
         GameObject go = Instantiate(item[3], new Vector3(-2, -8, 0), Quaternion.identity);
-        // go.GetComponent<Born>().createPlayer = true;
+        go.GetComponent<Born>().createPlayer = true;
 
         //产生敌人
         CreateItem(item[3], new Vector3(-10, 8, 0), Quaternion.identity);
         CreateItem(item[3], new Vector3(0, 8, 0), Quaternion.identity);
         CreateItem(item[3], new Vector3(10, 8, 0), Quaternion.identity);
 
-        // InvokeRepeating("CreateEnemy", 4, 5);
+        // 每隔一段时间重复调用
+        InvokeRepeating("CreateEnemy", 4, 5);
 
 
         //实例化地图

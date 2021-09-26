@@ -153,7 +153,7 @@ MonoBehaviour:
   - {fileID: 21300032, guid: c3a4b3c783ddce7438622efbc82d5538, type: 3}
   - {fileID: 21300048, guid: c3a4b3c783ddce7438622efbc82d5538, type: 3}
   bulletPrefab: {fileID: 5283894778350432737, guid: 40779cd9d6633c84f90ec03cd31f910a, type: 3}
-  explosionPrefab: {fileID: 7834220334559149008, guid: 0d2ad264844c9dd4ca4152b89ae453e5, type: 3}
+  explosionPrefab: {fileID: 7397821372448868759, guid: 3d3e963fb800c1e45a92985da101341e, type: 3}
   defendEffectPrefab: {fileID: 6468782835502175209}
 --- !u!1001 &4240483567537175364
 PrefabInstance:

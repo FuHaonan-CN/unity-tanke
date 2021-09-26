@@ -166,14 +166,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7141727013352466600, guid: 163397f0204741c42be742181342f317, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7141727013352466600, guid: 163397f0204741c42be742181342f317, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7141727013352466600, guid: 163397f0204741c42be742181342f317, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -216,10 +208,6 @@ PrefabInstance:
     - target: {fileID: 7141727013352466605, guid: 163397f0204741c42be742181342f317, type: 3}
       propertyPath: m_Name
       value: Shield
-      objectReference: {fileID: 0}
-    - target: {fileID: 7141727013352466605, guid: 163397f0204741c42be742181342f317, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 163397f0204741c42be742181342f317, type: 3}

@@ -45,6 +45,15 @@ public class Player : MonoBehaviour
                 defendEffectPrefab.SetActive(false);
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (PlayerManager.Instance.isDefeat)
+        {
+            // 游戏失败
+            return;
+        }
         
         // 设置发射子弹的间隔
         if (timeVal >= 0.4f)
@@ -53,13 +62,11 @@ public class Player : MonoBehaviour
         }
         else
         {
-            timeVal += Time.deltaTime;
+            timeVal += Time.fixedDeltaTime;
         }
-    }
-
-    private void FixedUpdate()
-    {
+        
         Move();
+        
     }
     
     // 坦克的攻击方法
@@ -77,30 +84,8 @@ public class Player : MonoBehaviour
     // 坦克的移动方法
     private void Move()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        
-        if (h < 0)
-        {
-            // 左
-            sr.sprite = tankSprite[3];
-            bulletEulerAngles = new Vector3(0, 0, 90);
-        }
-        else if (h > 0)
-        {
-            // 右
-            sr.sprite = tankSprite[1];
-            bulletEulerAngles = new Vector3(0, 0, -90);
-        }
-
-        transform.Translate(Vector3.right * h * moveSpeed * Time.fixedDeltaTime, Space.World);
-
-        // 设置优先级,避免斜着走
-        if (h != 0)
-        {
-            return;
-        }
-
         float v = Input.GetAxisRaw("Vertical");
+        transform.Translate(Vector3.up * v * moveSpeed * Time.fixedDeltaTime, Space.World);
         if (v < 0)
         {
             // 下
@@ -113,8 +98,27 @@ public class Player : MonoBehaviour
             sr.sprite = tankSprite[0];
             bulletEulerAngles = new Vector3(0, 0, 0);
         }
-
-        transform.Translate(Vector3.up * v * moveSpeed * Time.fixedDeltaTime, Space.World);
+        
+        // 设置优先级,避免斜着走
+        if (v != 0)
+        {
+            return;
+        }
+        
+        float h = Input.GetAxisRaw("Horizontal");
+        transform.Translate(Vector3.right * h * moveSpeed * Time.fixedDeltaTime, Space.World);
+        if (h < 0)
+        {
+            // 左
+            sr.sprite = tankSprite[3];
+            bulletEulerAngles = new Vector3(0, 0, 90);
+        }
+        else if (h > 0)
+        {
+            // 右
+            sr.sprite = tankSprite[1];
+            bulletEulerAngles = new Vector3(0, 0, -90);
+        }
     }
     // 坦克的死亡方法
     private void Die()
@@ -124,6 +128,9 @@ public class Player : MonoBehaviour
         {
             return;
         }
+
+        PlayerManager.Instance.isDead = true;
+        
         // 产生爆炸特效
         Instantiate(explosionPrefab, transform.position, transform.rotation);
         // 死亡

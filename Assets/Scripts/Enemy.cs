@@ -1,15 +1,17 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
     /* 属性值 */
     public float moveSpeed = 3;
     private Vector3 bulletEulerAngles;
-    private float v; // 敌人移动的竖直方向
+    private float v=-1; // 敌人移动的竖直方向
     private float h; // 敌人移动的水平方向
     
     private float timeVal; // 计时器
-    private float timeValChangeDirection=4; // 敌人移动的计时器
+    private float timeValChangeDirection; // 敌人移动的计时器
 
     /* 引用 */
     private SpriteRenderer sr;
@@ -135,9 +137,20 @@ public class Enemy : MonoBehaviour
     // 坦克的死亡方法
     private void Die()
     {
+        PlayerManager.Instance.playerScore++;
+        
         // 产生爆炸特效
         Instantiate(explosionPrefab, transform.position, transform.rotation);
         // 死亡
         Destroy(gameObject);
+    }
+
+    // 如果有碰撞 则旋转
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag=="Enemy")
+        {
+            timeValChangeDirection = 4;
+        }
     }
 }
