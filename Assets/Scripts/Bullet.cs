@@ -29,6 +29,7 @@ public class Bullet : MonoBehaviour
                 if (!isPlayerBullet)
                 {
                     collision.SendMessage("Die");
+                    Destroy(gameObject);
                 }
                 break;
             case "Home":
@@ -36,6 +37,11 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case "Enemy":
+                if (isPlayerBullet)
+                {
+                    collision.SendMessage("Die");
+                    Destroy(gameObject);
+                }
                 break;
             case "Wall":
                 // 销毁墙
