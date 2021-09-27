@@ -6,6 +6,7 @@ public class Barrier : MonoBehaviour
 
     public void PlayAudio()
     {
+        // 加入声音
         AudioSource.PlayClipAtPoint(hitAudio,transform.position);
     }
 }
