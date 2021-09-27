@@ -94,7 +94,6 @@ public class MapCreation : MonoBehaviour
             {
                 return createPosition;
             }
-            
         }
     }
 

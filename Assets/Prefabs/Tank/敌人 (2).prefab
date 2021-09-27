@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5577343671108267649}
   m_Layer: 0
   m_Name: "\u654C\u4EBA (2)"
-  m_TagString: Enemy
+  m_TagString: Barrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
