@@ -125,3 +125,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BrokenSprite: {fileID: 21300012, guid: 529e000d42d32de49bc475716ba7ae37, type: 3}
   explosionPrefab: {fileID: 7397821372448868759, guid: 3d3e963fb800c1e45a92985da101341e, type: 3}
+  dieAudio: {fileID: 8300000, guid: 41660860d05dbdf49b3c8da6332a4ef9, type: 3}

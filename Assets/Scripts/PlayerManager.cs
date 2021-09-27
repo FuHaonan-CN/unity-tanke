@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
@@ -14,8 +15,8 @@ public class PlayerManager : MonoBehaviour
 
     // 引用
     public GameObject born;
-    public Text playerScoreTex;
-    public Text playerLifeValueTex;
+    public Text playerScoreText;
+    public Text playerLifeValueText;
     public GameObject isDefeatUI;
     
     
@@ -46,6 +47,7 @@ public class PlayerManager : MonoBehaviour
         if (isDefeat)
         {
             isDefeatUI.SetActive(true);
+            Invoke("ReturnToTheMainMenu", 3);
             return;
         }
         
@@ -55,9 +57,8 @@ public class PlayerManager : MonoBehaviour
             Recover();
         }
 
-        playerLifeValueTex.text = lifeValue.ToString();
-        playerScoreTex.text = playerScore.ToString();
-        
+        playerScoreText.text = playerScore.ToString();
+        playerLifeValueText.text = lifeValue.ToString();
     }
 
     private void Recover()
@@ -66,7 +67,7 @@ public class PlayerManager : MonoBehaviour
         {
             // 游戏失败 返回主界面
             isDefeat = true;
-
+            Invoke("ReturnToTheMainMenu", 3);
         }
         else
         {
@@ -75,7 +76,10 @@ public class PlayerManager : MonoBehaviour
             GameObject go = Instantiate(born, new Vector3(-2, -8, 0), Quaternion.identity);
             go.GetComponent<Born>().createPlayer = true;
             isDead = false;
-            
         }
+    }
+    private void ReturnToTheMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

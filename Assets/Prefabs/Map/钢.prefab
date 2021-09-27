@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4907895445269612846}
   - component: {fileID: 3374532539245285280}
   - component: {fileID: -8700997554437626789}
+  - component: {fileID: -8030250575324120417}
   m_Layer: 0
   m_Name: "\u94A2"
   m_TagString: Barrier
@@ -110,3 +111,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
+--- !u!114 &-8030250575324120417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864490157301366270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074ab85f07611bc4b81a648b8496a79f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitAudio: {fileID: 8300000, guid: a36f2278a85dfc8458b569c2b95bacb6, type: 3}

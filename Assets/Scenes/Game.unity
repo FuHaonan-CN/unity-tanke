@@ -1929,8 +1929,8 @@ MonoBehaviour:
   isDead: 0
   isDefeat: 0
   born: {fileID: 6978757196016615307, guid: 3681fd5626a34b044b5df1a783a0efab, type: 3}
-  playerScoreTex: {fileID: 635301005}
-  playerLifeValueTex: {fileID: 91163235}
+  playerScoreText: {fileID: 635301005}
+  playerLifeValueText: {fileID: 91163235}
   isDefeatUI: {fileID: 1701662544}
 --- !u!4 &359550932
 Transform:
@@ -8026,7 +8026,7 @@ GameObject:
   - component: {fileID: 1701662547}
   - component: {fileID: 1701662546}
   m_Layer: 5
-  m_Name: Img_Degeat
+  m_Name: Img_Defeat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
