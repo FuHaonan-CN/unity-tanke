@@ -56,6 +56,8 @@ public class Player : MonoBehaviour
             return;
         }
         
+        Move();
+        
         // 设置发射子弹的间隔
         if (timeVal >= 0.4f)
         {
@@ -65,9 +67,6 @@ public class Player : MonoBehaviour
         {
             timeVal += Time.fixedDeltaTime;
         }
-        
-        Move();
-        
     }
     
     // 坦克的攻击方法
@@ -104,7 +103,7 @@ public class Player : MonoBehaviour
         {
             moveAudio.clip = tankAudio[1];
             // 不判断会一直播放 刺耳
-            if (moveAudio.isPlaying)
+            if (!moveAudio.isPlaying)
             {
                 moveAudio.Play();
             }
@@ -134,7 +133,7 @@ public class Player : MonoBehaviour
         {
             moveAudio.clip = tankAudio[1];
             // 不判断会一直播放 刺耳
-            if (moveAudio.isPlaying)
+            if (!moveAudio.isPlaying)
             {
                 moveAudio.Play();
             }
@@ -143,7 +142,7 @@ public class Player : MonoBehaviour
         {
             moveAudio.clip = tankAudio[0];
             // 不判断会一直播放 刺耳
-            if (moveAudio.isPlaying)
+            if (!moveAudio.isPlaying)
             {
                 moveAudio.Play();
             }

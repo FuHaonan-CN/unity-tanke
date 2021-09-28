@@ -12,7 +12,7 @@ public class Born : MonoBehaviour
     void Start()
     {
         Invoke("BornTank", 1f);
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 1);
     }
 
     // Update is called once per frame
@@ -25,12 +25,12 @@ public class Born : MonoBehaviour
     {
         if (createPlayer)
         {
-            Instantiate(playerPrefab, transform.position, transform.rotation);
+            Instantiate(playerPrefab, transform.position, Quaternion.identity);
         }
         else
         {
             int num = Random.Range(0, 2);
-            Instantiate(enemyPrefabList[num], transform.position, transform.rotation);
+            Instantiate(enemyPrefabList[num], transform.position, Quaternion.identity);
         }
 
     }
